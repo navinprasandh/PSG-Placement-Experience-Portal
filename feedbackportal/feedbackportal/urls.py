@@ -5,3 +5,4 @@ urlpatterns = [
     path('',include('placement.urls')),
     path('admin/', admin.site.urls),
 ]
+
