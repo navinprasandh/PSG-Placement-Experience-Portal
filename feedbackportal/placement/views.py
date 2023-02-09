@@ -6,8 +6,12 @@ def placement(request):
     template = loader.get_template('main/homepage.html')
     return HttpResponse(template.render())
 
-def detail(request):
+def main(request):
     template = loader.get_template('main/home.html')
+    return HttpResponse(template.render())
+
+def detail(request):
+    template = loader.get_template('main/detail.html')
     return HttpResponse(template.render())
    
 
