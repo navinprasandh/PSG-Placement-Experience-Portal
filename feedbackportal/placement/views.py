@@ -20,6 +20,8 @@ def detail(request):
     template = loader.get_template('main/detail.html')
     return HttpResponse(template.render())
    
+def register(request):
+    return render(request,"main/register.html")
 
 def profile(request):
     return render(request,"main/profile.html")
