@@ -1,9 +1,0 @@
-{% extends 'register.html' %}
-
-{% block content %}
-  <form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit" class="btn btn-success">Save person</button>
-  </form>
-{% endblock %}

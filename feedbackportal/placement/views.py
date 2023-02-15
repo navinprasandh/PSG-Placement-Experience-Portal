@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Carausel, Students
-from django.views.generic import CreateView
+from .models import Carausel 
+#from django.views.generic import CreateView
 from django.template import loader
 
 
@@ -22,7 +22,7 @@ def detail(request):
     return HttpResponse(template.render())
    
 def register(request):
-    return render(request,"main/register_form.html")
+    return render(request,template_name="main/register.html")
 
 def about(request):
     return render(request,"main/about.html")
@@ -30,6 +30,6 @@ def about(request):
 def profile(request):
     return render(request,"main/profile.html")
 
-def studentview(CreateView):
-    model = Students
-    fields = ('name', 'rollnumber','email','department','course','yearofpassing')
+#def studentview(CreateView):
+ #   model = Students
+  #  fields = ('name', 'rollnumber','email','department','course','yearofpassing')
