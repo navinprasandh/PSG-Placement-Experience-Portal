@@ -1,83 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<style>
-    * {box-sizing: border-box;}
-
-/* Style the input container */
-.input-container {
-  display: flex;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-/* Style the form icons */
-.icon {
-  padding: 10px;
-  background: dodgerblue;
-  color: white;
-  min-width: 50px;
-  text-align: center;
-}
-
-/* Style the input fields */
-.input-field {
-  width: 100%;
-  padding: 10px;
-  outline: none;
-}
-
-.input-field:focus {
-  border: 2px solid dodgerblue;
-}
-
-/* Set a style for the submit button */
-.btn {
-  background-color: dodgerblue;
-  color: white;
-  padding: 15px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.btn:hover {
-  opacity: 1;
-}
-
-</style>
-<body>
-    <form action="/action_page.php">
-        <h2>Register Form</h2>
-        <div class="input-container">
-          <i class="fa fa-user icon"></i>
-          <input class="input-field" type="text" placeholder="Name" name="usrnm">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h1 class="mt-2">Registration Form</h1>
+          <hr class="mt-0 mb-4">
+          {% block content %}
+          {% endblock %}
         </div>
-      
-        <div class="input-container">
-          <i class="fa fa-envelope icon"></i>
-          <input class="input-field" type="text" placeholder="Roll Number" name="rno">
-        </div>
-        <div class="input-container">
-            <i class="fa fa-envelope icon"></i>
-            <input class="input-field" type="text" placeholder="Department" name="dept">
-          </div>
-          <div class="input-container">
-            <i class="fa fa-envelope icon"></i>
-            <input class="input-field" type="text" placeholder="Course" name="course">
-          </div>
-          <div class="input-container">
-            <i class="fa fa-envelope icon"></i>
-            <input class="input-field" type="number" placeholder="Year of Passing" name="passing">
-          </div>
-    
-        <button type="submit" class="btn">Register</button>
-      </form>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
