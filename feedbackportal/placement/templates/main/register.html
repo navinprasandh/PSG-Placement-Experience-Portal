@@ -1,47 +1,65 @@
-<!DOCTYPE html>
-<html>
-  <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!--Bootstrap CSS-->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-    <body>
 
-    {% load crispy_forms_tags %}  
 
-    <!--Contact form-->
-    <div class="container p-5">
-      <h1>Contact</h1>
-      <h4>Contact us directly if you have any questions</h4>
-      <p>
-        Please write your name, email address and a message below if you have any questions.
-        One of our staff members will be happy to contact you directly and answer your questions as soon as possible. 
-      </p>
-      <form method="post">
-          {% csrf_token %}
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
-              {{form.first_name|as_crispy_field}}
+{% block content %}
+    <div class="container">
+        <form action="{% url 'main:register' %}" method="post">
+            {% csrf_token %}
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Register</div>
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+                       
+                        <div class="form-group clearfix">
+                            <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">Username<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.username }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">Email<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.email }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.password.id_for_label }}" class="col-md-4 control-label text-right">Password<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ form.password }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.password_repeat.id_for_label }}" class="col-md-4 control-label text-right">Confirm password:</label>
+                            <div class="col-md-6">
+                                {{ form.password_repeat }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.first_name.id_for_label }}" class="col-md-4 control-label text-right">First Name:</label>
+                            <div class="col-md-6">
+                                {{ form.first_name }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.last_name.id_for_label }}" class="col-md-4 control-label text-right">Last Name:</label>
+                            <div class="col-md-6">
+                                {{ form.last_name }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.phone_number.id_for_label }}" class="col-md-4 control-label text-right">Phone Number:</label>
+                            <div class="col-md-6">
+                                {{ form.phone_number }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-4">
+                            <input type="submit" value="Register" class="btn btn-success">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6 col-md-12">
-              {{form.last_name|as_crispy_field}}
-            </div>
-          </div>
-          <div class="row">
-              {{form.email_address|as_crispy_field}}
-          </div>
-          <div class="row">
-              {{form.comment|as_crispy_field}}
-          </div>
-              <button type="submit">Submit</button>
-          </form>
-      </div>
-
-    <!-- Optional Javascript -->
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
-</html>
+        </form>
+    </div>
+{% endblock %}
