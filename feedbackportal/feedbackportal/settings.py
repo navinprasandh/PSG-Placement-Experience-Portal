@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'placement',
+    'smart_selects',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -109,17 +110,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
-
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -133,14 +127,28 @@ STATIC_ROOT = os.path.join(BASE_DIR,'asserts')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
+# Django smart-select
+USE_DJANGO_JQUERY = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_USE_TLS = True  
-EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_USER = 'navinprasandhnp@gmail.com'  
-EMAIL_HOST_PASSWORD = 'navin@7961'  
+# Custom User Model
+AUTH_USER_MODEL = 'placement.Users'
+
+# Mail Server
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+EMAIL_HOST_USER = 'navinprasandhnp@gmail.com'
+EMAIL_HOST_PASSWORD = 'navin@7961' 
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+# Session Expiry
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 60 * 5
+SESSION_SAVE_EVERY_REQUEST = True
