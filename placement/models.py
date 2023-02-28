@@ -90,19 +90,19 @@ class Users(AbstractUser):
 	def __str__(self):
 		return str(self.email)
 
-	# def save(self, **kwargs):
-	# 	if self.is_superuser == False and self.is_staff == False:
-	# 		self.statusMail()
-	# 	super().save()
-	# 	transaction.on_commit(self.addingGroup)
+	def save(self, **kwargs):
+		if self.is_superuser == False and self.is_staff == False:
+			self.statusMail()
+		super().save()
+		transaction.on_commit(self.addingGroup)
 
-	# def addingGroup(self):
-	# 	if self.is_superuser == False and self.is_staff == False:
-	# 		self.groups.add(Group.objects.get(name='students'))
-	# 	super().save()
+	def addingGroup(self):
+		if self.is_superuser == False and self.is_staff == False:
+			self.groups.add(Group.objects.get(name='students'))
+		super().save()
 
 	def statusMail(self):
-		# self.is_active = False
+		self.is_active = False
 		subject = "Welcome to the Student Portal"
 		message = "Hello " + self.name + ",\n\nWelcome to the Student Portal. Your account has been created. Please wait for the admin to activate your account.\n\nRegards,\nStudent Portal"
 		email_from = settings.EMAIL_HOST_USER
