@@ -10,6 +10,17 @@ class Carausel(models.Model):
     def __str__(self):
         return self.title
 
+class Student(models.Model):
+    roll_number = models.OneToOneField(
+        'auth.User',
+        on_delete=models.CASCADE,
+        primary_key=True,
+        related_name='student',
+        verbose_name='Roll Number'
+    )
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=50)
+
 #class Students(models.Model):
     #name = models.CharField(max_length=130)
     #rollnumber = models.CharField(max_length=10)
