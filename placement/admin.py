@@ -47,10 +47,15 @@ class CustomUserAdmin(UserAdmin):
 			return super(CustomUserAdmin, self).get_fieldsets(request, obj)
 
 class DepartmentAdmin(admin.ModelAdmin):
-	list_display = ('name', 'course',)
-	search_fields = ('name', 'course',)
+	list_display = ('name',)
+	search_fields = ('name',)
 	ordering = ('name',)
 	list_filter = ('name',)
+
+class CourseAdmin(admin.ModelAdmin):
+	list_display = ('name', 'department',)
+	search_fields = ('name', 'department__name',)
+	list_filter = ('department__name',)
 
 admin.site.site_title = "Placement Experience Portal Admin Login"
 admin.site.index_title = "Placement Experience Portal - Dashboard"
@@ -60,3 +65,4 @@ admin.site.site_header = "Placement Experience Portal - Admin"
 admin.site.register(Carausel)
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Department, DepartmentAdmin)
+admin.site.register(Course, CourseAdmin)

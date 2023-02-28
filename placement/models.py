@@ -51,13 +51,22 @@ class User_Manager(BaseUserManager):
 
 class Department(models.Model):
 	class Meta:
-		verbose_name_plural = "Departments and Courses"
+		verbose_name_plural = "Departments"
 
 	name = models.CharField(max_length=100, unique=True, verbose_name="Department Name")
-	course = models.CharField(max_length=100, verbose_name="Course Name")
 
 	def __str__(self):
-		return str(str(self.name) + " - " + str(self.course))
+		return str(self.name)
+
+class Course(models.Model):
+	class Meta:
+		verbose_name_plural = "Courses"
+
+	department = models.ForeignKey(Department, on_delete=models.CASCADE, blank=True, null=True)
+	name = models.CharField(max_length=100, unique=True, verbose_name="Course Name")
+
+	def __str__(self):
+		return str(str(self.department) + " - " + str(self.name))
 
 class Users(AbstractUser):
 	class Meta:
@@ -71,8 +80,7 @@ class Users(AbstractUser):
 	email = models.EmailField(unique=True)
 	roll_number = models.CharField(max_length=10, blank=True, null=True)
 	department = models.ForeignKey(Department, on_delete=models.CASCADE, blank=True, null=True)
-	# course = models.CharField(max_length=100, blank=True, null=True)
-	course = ChainedForeignKey(Department, chained_field="department", chained_model_field="name", show_all=False, sort=True, on_delete=models.CASCADE, blank=True, null=True,related_name="student_course")
+	course = ChainedForeignKey(Course, chained_field="department", chained_model_field="department", show_all=False, sort=True, on_delete=models.CASCADE, blank=True, null=True,related_name="student_course")
 	USERNAME_FIELD='email'
 	REQUIRED_FIELDS = ['name']
 
