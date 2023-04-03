@@ -15,7 +15,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_URL = "http://localhost:8000/"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'crispy_bootstrap5',
     'placement',
     'smart_selects',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'feedbackportal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['template'],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,7 +131,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Django smart-select
 USE_DJANGO_JQUERY = True
-
+# JQUERY_URL = True
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -144,7 +146,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'navinprasandhnp@gmail.com'
-EMAIL_HOST_PASSWORD = 'navin@7961' 
+EMAIL_HOST_PASSWORD = 'flvultwzcvjtbbmd' 
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
@@ -152,3 +154,7 @@ EMAIL_USE_SSL = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 60 * 5
 SESSION_SAVE_EVERY_REQUEST = True
+
+LOGIN_REDIRECT_URL='/profile/'
+LOGIN_URL='/login/'
+LOGOUT_REDIRECT_URL='/login/'
