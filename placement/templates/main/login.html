@@ -215,11 +215,11 @@
   
         <div class="header">
             <img align="left" src="https://i.ibb.co/JzPN4WZ/logo-1.png"/>
-            <a href="#default" class="logo">Placement Experience Portal</a>
+            <a href="{% url 'main' %}" class="logo">Placement Experience Portal</a>
            <!-- <div class="header-right">--><!--<div class="float-end">-->
-              <a class="active" href="#home">Home</a>
-              <a href="about">About</a>
-              <a href="register">Register</a>
+              <a class="active" href="{% url 'login' %}">Login</a>
+              <a href="{% url 'about' %}">About</a>
+              <a href="{% url 'register' %}">Register</a>
            <!-- </div>--><!--</div>-->
           </div>
   </head>

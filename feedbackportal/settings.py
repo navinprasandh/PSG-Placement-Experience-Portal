@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'placement',
     'smart_selects',
+    'dynamic_forms',
 ]
 
+USE_CRISPY = True
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'crum.CurrentRequestUserMiddleware',
 ]
 
 ROOT_URLCONF = 'feedbackportal.urls'
@@ -126,6 +129,9 @@ STATICFILES_DIRS=[
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'asserts')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
@@ -158,3 +164,9 @@ SESSION_SAVE_EVERY_REQUEST = True
 LOGIN_REDIRECT_URL='/profile/'
 LOGIN_URL='/login/'
 LOGOUT_REDIRECT_URL='/login/'
+
+DYNAMIC_FORMS_CUSTOM_JS = (
+    'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
+    'https://formbuilder.online/assets/js/form-builder.min.js',
+)

@@ -87,16 +87,6 @@ class CourseAdmin(admin.ModelAdmin):
 	search_fields = ('name', 'department__name',)
 	list_filter = ('department__name',)
 
-class RoundQuestionsAdminInline(admin.TabularInline):
-	model = RoundQuestions
-	extra = 0
-
-class PlacementRoundAdmin(admin.ModelAdmin):
-	list_display = ('name',)
-	search_fields = ('name',)
-	list_filter = ('name',)
-	inlines = [RoundQuestionsAdminInline]
-
 admin.site.site_title = "Placement Experience Portal Admin Login"
 admin.site.index_title = "Placement Experience Portal - Dashboard"
 admin.site.site_header = "Placement Experience Portal - Admin"
@@ -106,4 +96,5 @@ admin.site.register(Carausel)
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Department, DepartmentAdmin)
 admin.site.register(Course, CourseAdmin)
-admin.site.register(PlacementRound, PlacementRoundAdmin)
+admin.site.register(Survey)
+admin.site.register(SurveyResponse)
