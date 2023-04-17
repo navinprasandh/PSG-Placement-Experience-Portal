@@ -11,14 +11,14 @@ User = get_user_model()
 class CustomUserAdmin(UserAdmin):
 	fieldsets = (
 		(None, {'fields': ('email', 'password')}),
-		(_('Personal info'), {'fields': ('name', 'roll_number', 'department', 'course', 'contact', 'year_of_passing', 'placed_company', 'package', 'offer_type')}),
+		(_('Personal info'), {'fields': ('name', 'profile_pic', 'roll_number', 'department', 'course', 'contact', 'year_of_passing', 'placed_company', 'package', 'offer_type')}),
 		(_('Permissions'), {'fields': ('is_staff', 'is_superuser',
 									   'groups', 'user_permissions')}),
 		(_('Important dates'), {'fields': ('last_login', 'date_joined')}),
 	)
 	staff_fieldsets = (
 		(None, {'fields': ('email', 'password')}),
-		(_('Personal info'), {'fields': ('name', 'roll_number', 'department', 'course')}),
+		(_('Personal info'), {'fields': ('name', 'roll_number', 'profile_pic', 'department', 'course')}),
 		(_('Permissions'), {'fields': ('is_staff',
 									   'groups')}),
 		(_('Important dates'), {'fields': ('last_login', 'date_joined')}),

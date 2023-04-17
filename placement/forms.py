@@ -23,7 +23,7 @@ class NewUserSignupForm(UserCreationForm):
 class UpdateForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('name', 'email', 'roll_number', 'department', 'course', 'contact', 'year_of_passing', 'placed_company', 'package', 'offer_type')
+        fields = ('name', 'email', 'profile_pic', 'roll_number', 'department', 'course', 'contact', 'year_of_passing', 'placed_company', 'package', 'offer_type')
 
     def clean_email(self):
         if self.instance: 
