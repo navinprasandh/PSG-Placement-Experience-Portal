@@ -12,8 +12,12 @@ class NewUserSignupForm(UserCreationForm):
     def save(self, commit=True):
         user = super(NewUserSignupForm, self).save(commit=False)
         user.email = self.cleaned_data['email']
+        print(user)
         if commit:
-            user.save()
+            try:
+                user.save()
+            except:
+                print("Failed")
         return user
 
 class UpdateForm(forms.ModelForm):

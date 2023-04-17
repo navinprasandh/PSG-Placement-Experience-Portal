@@ -18,14 +18,14 @@
       /* Style the header with a grey background and some padding */
       .header {
         overflow: hidden;
-        background-color: #c6c1c1;
+        background-color: #0096c7;
         padding: 20px 10px;
       }
       
       /* Style the header links */
       .header a {
         float: left;
-        color: black;
+        color: rgb(255, 254, 254);
         text-align: center;
         padding: 12px;
         text-decoration: none;
@@ -48,7 +48,7 @@
       
       /* Style the active/current link*/
       .header a.active {
-        background-color: dodgerblue;
+        background-color: rgb(0, 0, 0);
         color: white;
       }
       @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
@@ -212,21 +212,19 @@
         to {opacity: 1}
       }
       </style>
-      
-  
-      <!--Nav bar-->
-  
-        <div class="header">
-            <img align="left" src="https://i.ibb.co/JzPN4WZ/logo-1.png"/>
-            <a href="{% url 'main' %}" class="logo">Placement Experience Portal</a>
-           <!-- <div class="header-right">--><!--<div class="float-end">-->
-              <a class="active" href="{% url 'register' %}">Register</a>
-              <a href="{% url 'about' %}">About</a>
-              <a href="{% url 'login' %}">Login</a>
-           <!-- </div>--><!--</div>-->
-          </div>
+
   </head>
-  <body class="container bg-light">
+  <body class="container-fluid bg-light">
+    <div class="header">
+      <img align="left" src="https://i.ibb.co/JzPN4WZ/logo-1.png"/>
+      <a href="{% url 'main' %}" class="logo">Placement Experience Portal</a>
+     <!-- <div class="header-right">--><!--<div class="float-end">-->
+        <a class="active" href="{% url 'register' %}">Register</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'login' %}">Login</a>
+     <!-- </div>--><!--</div>-->
+    </div>
+    <div  style="display:flex;justify-content:center;align-items:center;flex-direction: column;">
     <div class="text-center pt-5">
       <img
         src="https://i.ibb.co/JzPN4WZ/logo-1.png"
@@ -235,8 +233,9 @@
       <h2>PSG Placement Experiece Portal</h2>
       <p>User Registration</p>
     </div>
-    <div class="card">
-      <div class="card-body">
+    
+    <div class="card col-md-6 col-sm-12 d-flex justify-content-center">
+      <div class="card-body ">
         {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -252,15 +251,17 @@
           <button class="btn btn-primary btn-block col-lg-2" type="submit">
             Register
           </button>
-          <p class="text-center"><a href="{% url 'login' %}" class="btn">SignIn</a></p>
+          <p class="text-center"><a href="{% url 'login' %}" class="btn">Have an account?Log In</a></p>
         </form>
       </div>
     </div>
-    <footer>
+  </div>
+  {% include "main/footer.html" %} 
+    <!-- <footer>
       <div class="my-4 text-muted text-center">
         <br>
         <p>© Placement Experience Portal</p>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>

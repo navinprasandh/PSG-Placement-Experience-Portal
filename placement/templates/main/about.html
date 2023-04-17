@@ -79,14 +79,14 @@ html {
       /* Style the header with a grey background and some padding */
       .header {
         overflow: hidden;
-        background-color: #c6c1c1;
+        background-color: #0096c7;
         padding: 20px 10px;
       }
       
       /* Style the header links */
       .header a {
         float: left;
-        color: black;
+        color: rgb(255, 250, 250);
         text-align: center;
         padding: 12px;
         text-decoration: none;
@@ -109,7 +109,7 @@ html {
       
       /* Style the active/current link*/
       .header a.active {
-        background-color: dodgerblue;
+        background-color: rgb(1, 1, 1);
         color: white;
       }
       @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
@@ -279,7 +279,7 @@ html {
   
         <div class="header">
             <img align="left" src="https://i.ibb.co/JzPN4WZ/logo-1.png"/>
-            <a href="#default" class="logo">Placement Experience Portal</a>
+            <a href="{% url 'main' %}" class="logo">Placement Experience Portal</a>
            <!-- <div class="header-right">--><!--<div class="float-end">-->
               <a href="{% url 'main' %}">Home</a>
               <a class="active" href="{% url 'about' %}">About</a>
@@ -310,6 +310,7 @@ html {
         </div>
       </center>
         
-    
+      {% include "main/footer.html" %} 
 </body>
+
 </html>
