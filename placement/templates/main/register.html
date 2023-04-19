@@ -215,15 +215,16 @@
 
   </head>
   <body class="container-fluid bg-light">
-    <div class="header">
+    {% include "main/header.html" %}
+    <!-- <div class="header">
       <img align="left" src="https://i.ibb.co/JzPN4WZ/logo-1.png"/>
       <a href="{% url 'main' %}" class="logo">Placement Experience Portal</a>
-     <!-- <div class="header-right">--><!--<div class="float-end">-->
+      <div class="header-right">--><!--<div class="float-end">
         <a class="active" href="{% url 'register' %}">Register</a>
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'login' %}">Login</a>
-     <!-- </div>--><!--</div>-->
-    </div>
+     </div>--><!--</div>-->
+    </div> 
     <div  style="display:flex;justify-content:center;align-items:center;flex-direction: column;">
     <div class="text-center pt-5">
       <img

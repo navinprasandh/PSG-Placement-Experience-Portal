@@ -217,7 +217,7 @@
       
   
       <!--Nav bar-->
-  
+      
         <div class="header">
             <img align="left" src="https://i.ibb.co/JzPN4WZ/logo-1.png"/>
             <a href="{% url 'profile' %}" class="logo">Placement Experience Portal</a>
@@ -232,9 +232,11 @@
               </div>
             </div>
           </div>
+          
   </head>
 <!-- Form Card -->
-<div class="card pmd-card">
+<div class="card col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+<!-- <div class="card pmd-card">  -->
       <form method="POST" role="form">
         {% if messages %}
         {% for message in messages %}

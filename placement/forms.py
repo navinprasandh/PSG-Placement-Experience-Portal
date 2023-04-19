@@ -14,10 +14,7 @@ class NewUserSignupForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         print(user)
         if commit:
-            try:
                 user.save()
-            except:
-                print("Failed")
         return user
 
 class UpdateForm(forms.ModelForm):

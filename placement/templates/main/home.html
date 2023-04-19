@@ -223,17 +223,20 @@
 
 
   <!--Nav bar-->
+  {% include "main/header.html" %}
 
-  <div class="header">
+  <!--<div class="header">
     <img align="left" src="https://i.ibb.co/JzPN4WZ/logo-1.png" />
     <a href="{% url 'main' %}" class="logo">Placement Experience Portal</a>
-    <!-- <div class="header-right">--><!--<div class="float-end">-->
-    <a class="active" href="#home">Home</a>
+     <div class="header-right">--><!--<div class="float-end">
+    <div style="display: flex; justify-content: center;align-items: self-end;position: relative;">
+      <a class="active" href="#home">Home</a>
     <a href="{% url 'about' %}">About</a>
     <a href="{% url 'register' %}">Register</a>
-    {% for surv in survey %}
+  </div>-->
+    <!-- {% for surv in survey %}
     <a href="{% url 'survey_detail' survey_id=surv %}">View Round {{surv}}'s Responses</a>
-    {% endfor %}
+    {% endfor %} -->
     <!-- </div>--><!--</div>-->
   </div>
 </head>
@@ -297,7 +300,7 @@
     </div>
   </div>
   <br>
-  <h5> Recent Placement Experience</h5>
+  <h5> <b>Recent Placement Experience</b></h5>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% regroup survey_response by user as user_survey_response %}
     {% for user_resp in user_survey_response %}
